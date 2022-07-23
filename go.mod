@@ -5,7 +5,6 @@ go 1.18
 require (
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/protobuf v1.5.2
-	github.com/oaago/go-proto-validators v0.3.2
 	github.com/stretchr/testify v1.8.0
 	golang.org/x/text v0.3.7
 )
