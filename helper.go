@@ -5,8 +5,6 @@ package validator
 
 import (
 	"strings"
-
-	"golang.org/x/text/message"
 )
 
 // Validator is a general interface that allows a message to be validated.
