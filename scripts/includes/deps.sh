@@ -10,16 +10,16 @@ function install_protobuf() {
     version="${PROTOBUF_VERSION}"
     deps_dir="${PROJECT_DIR}/deps"
     case "$(uname -s | tr "[:upper:]" "[:lower:]")" in
-        linux)
-            os_string="linux"
-            ;;
-        darwin)
-            os_string="osx"
-            ;;
-        *)
-            echo "This platform is not supported for running this script."
-            exit 1
-            ;;
+    linux)
+        os_string="linux"
+        ;;
+    darwin)
+        os_string="osx"
+        ;;
+    *)
+        echo "This platform is not supported for running this script."
+        exit 1
+        ;;
     esac
 
     if [[ ! -e "${deps_dir}/${version}.zip" ]]; then
@@ -45,7 +45,7 @@ function setup_proto_deps() {
     proto_deps=(
         "github.com/gogo/protobuf"
         "github.com/golang/protobuf"
-        "github.com/mwitkow/go-proto-validators"
+        "github.com/oaago/go-proto-validators"
     )
 
     # Set up the target directory for symlinking in dependencies.
