@@ -3,7 +3,11 @@
 
 package validator
 
-import "strings"
+import (
+	"strings"
+
+	"golang.org/x/text/message"
+)
 
 // Validator is a general interface that allows a message to be validated.
 type Validator interface {
@@ -20,10 +24,11 @@ func CallValidatorIfExists(candidate interface{}) error {
 type fieldError struct {
 	fieldStack []string
 	nestedErr  error
+	message string
 }
 
 func (f *fieldError) Error() string {
-	return "invalid field " + strings.Join(f.fieldStack, ".") + ": " + f.nestedErr.Error()
+	return "字段验证失败 " + strings.Join(f.fieldStack, ".") + ": " + f.nestedErr.Error()
 }
 
 // FieldError wraps a given Validator error providing a message call stack.
@@ -35,5 +40,6 @@ func FieldError(fieldName string, err error) error {
 	return &fieldError{
 		fieldStack: []string{fieldName},
 		nestedErr:  err,
+		message: err.Error(),
 	}
 }
